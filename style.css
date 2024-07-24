@@ -1,0 +1,114 @@
+body {
+  background-color: lightblue;
+  font-family: Arial, sans-serif;
+}
+
+.player {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.track-art {
+  margin: 25px;
+  height: 250px;
+  width: 250px;
+  background-image: URL("https://source.unsplash.com/Qrspubmx6kE/640x360");
+  background-size: cover;
+  background-position: center;
+  border-radius: 15%;
+}
+
+.track-name {
+  font-size: 2rem;
+}
+
+.track-artist {
+  font-size: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.buttons button {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  transition: opacity 0.2s;
+}
+
+.buttons button:hover {
+  opacity: 1;
+}
+
+.slider_container {
+  width: 75%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seek_slider,
+.volume_slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: black;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.seek_slider:hover,
+.volume_slider:hover {
+  opacity: 1;
+}
+
+.seek_slider {
+  width: 60%;
+}
+
+.volume_slider {
+  width: 30%;
+}
+
+.current-time,
+.total-duration {
+  padding: 10px;
+}
+
+.volume-control {
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

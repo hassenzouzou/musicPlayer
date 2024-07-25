@@ -5,6 +5,7 @@ const seekSlider = document.querySelector(".seek_slider");
 const volumeSlider = document.querySelector(".volume_slider");
 const currTime = document.querySelector(".current-time");
 const totalDuration = document.querySelector(".total-duration");
+const trackArtElement = document.querySelector(".track-art");
 const trackNameElement = document.getElementById("trackName");
 const trackArtistElement = document.getElementById("trackArtist");
 
@@ -12,25 +13,25 @@ let isPlaying = false;
 let trackIndex = 0;
 const audio = new Audio();
 let updateTimer;
+let tracks = [];
 
-const tracks = [
-  { name: "لو مرة بس", artist: "بيغ سام", path: "music/لو مرة بس.mp3" },
-  {
-    name: "سلام",
-    artist: "عبد الله الجار",
-    path: "music/سلام عبد الله الجار.mp3",
-  },
-];
+async function fetchTracks() {
+  const response = await fetch("http://localhost:3000/tracks");
+  const data = await response.json();
+  tracks = data;
+  loadTrack();
+}
 
 function loadTrack() {
-  if (updateTimer) clearInterval(updateTimer); // Clear the previous timer
+  if (updateTimer) clearInterval(updateTimer);
   audio.src = tracks[trackIndex].path;
+  trackArtElement.src = tracks[trackIndex].pic;
   trackNameElement.textContent = tracks[trackIndex].name;
   trackArtistElement.textContent = tracks[trackIndex].artist;
   audio.play();
   playPauseButton.textContent = "⏸️";
   isPlaying = true;
-  updateTimer = setInterval(updateTime, 1000); // Start updating time
+  updateTimer = setInterval(updateTime, 1000);
 }
 
 function playpauseTrack() {
@@ -87,4 +88,4 @@ nextTrackButton.addEventListener("click", nextTrack);
 seekSlider.addEventListener("input", seekTo);
 volumeSlider.addEventListener("input", setVolume);
 
-loadTrack();
+fetchTracks();

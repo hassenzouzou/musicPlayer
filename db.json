@@ -1,0 +1,16 @@
+{
+  "tracks": [
+    {
+      "name": "لو مرة بس",
+      "artist": "بيغ سام",
+      "path": "music/لو مرة بس.mp3",
+      "pic": "imgs/لو مرة بس.jpeg"
+    },
+    {
+      "name": "سلام",
+      "artist": "عبد الله الجار",
+      "path": "music/سلام عبد الله الجار.mp3",
+      "pic": "imgs/سلام.jpeg"
+    }
+  ]
+}
